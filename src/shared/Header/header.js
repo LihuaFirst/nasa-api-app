@@ -22,7 +22,7 @@ class HeaderContainer extends React.Component {
                    <Icon icon="camera-roll" accessibilityLabel="heart" color="red" size={20}/>
                 </Box>
                 <Box padding={3}>
-                    <Text size="xl" accessibilityLabel={1} bold>Search Movie</Text>
+                    <Text size="xl" accessibilityLabel={1} bold>NASA Image Library</Text>
                 </Box>
                 <Box padding={3}>
                     <SearchBar />
