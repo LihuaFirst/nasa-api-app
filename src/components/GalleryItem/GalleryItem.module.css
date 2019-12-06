@@ -1,0 +1,26 @@
+.item-wrapper {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 0 1rem;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+
+  transition-property: box-shadow;
+  transition-duration: 200ms;
+  will-change: box-shadow, transform;
+}
+.item-wrapperhover {
+  transform: translate(0, -2px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.item-image {
+   width: 100%;
+   height: auto;
+   
+   border-radius: 10px;
+ }

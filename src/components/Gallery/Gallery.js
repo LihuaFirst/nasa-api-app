@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import {Box, Masonry, Text} from 'gestalt';
+import {Masonry} from 'gestalt';
+import GalleryItem from '../GalleryItem/GalleryItem';
 
-class Homepage extends React.Component {
+class Gallery extends React.Component {
    constructor(props) {
       super(props);
       this.state = {
@@ -10,16 +11,20 @@ class Homepage extends React.Component {
          isLoaded: false,
          items: []
       }
+      this.loadItems(props.search);
    }
 
-   componentDidMount() {
-      let keyword ="moon%20landing";
-      const url = "https://images-api.nasa.gov/search?media_type=image&q="+keyword;
+   componentWillReceiveProps(nextProps) {
+      this.loadItems(nextProps.search);
+   }
+
+   loadItems = (query) => {
+      const url = "https://images-api.nasa.gov/search?media_type=image&q="+encodeURI(query);
 
       axios.get(url)
          .then( (res) => {            
             const response = res.data.collection.items;
-            // console.log(response);
+            console.log(response);
             let items = response.map(item => {
                var rObj = {};
                rObj['href'] = item.links[0].href;
@@ -39,12 +44,12 @@ class Homepage extends React.Component {
          .finally(() => {
             //console.log(this.state.items);
          });
-   }
+   };
 
    render() {
       return(
          <Masonry 
-            comp={i => (<Poster href={i.data.href} alt={i.data.alt} title={i.data.title} />)}
+            comp={i => (<GalleryItem href={i.data.href} alt={i.data.alt} title={i.data.title} />)}
             items={this.state.items}
             minCols={1}
             flexible={true}
@@ -55,15 +60,4 @@ class Homepage extends React.Component {
    }
 }
 
-const Poster = (props) => (
-   <Box className="poster">
-      <img src={props.href}
-           alt={props.alt}
-           title={props.title}
-           className="poster-image"
-      />
-      <Text>{props.title}</Text>
-   </Box>
-);
-
-export default Homepage;
+export default Gallery;
