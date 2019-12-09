@@ -1,6 +1,8 @@
 import React from 'react';
-import {Box, Icon, Text, SearchField} from "gestalt";
-//import SearchBar from '../SearchBar/searchbar';
+import {Box, Text, SearchField} from "gestalt";
+
+import styles from './HeaderBar.module.css';
+import nasaLogo from '../../assets/nasa-logo.svg';
 
 class HeaderBar extends React.Component {
     constructor(props) {
@@ -21,15 +23,13 @@ class HeaderBar extends React.Component {
                  direction="row" 
                  alignItems="center"
             >
+                <img src={nasaLogo} 
+                     alt="NASA logo"
+                     title="Nasa logo"
+                     className={styles['header-logo']} />
+
                 <Box padding={3}>
-                   <Icon icon="camera-roll" 
-                         accessibilityLabel="heart" 
-                        color="blue" 
-                        size={20}
-                   />
-                </Box>
-                <Box padding={3}>
-                    <Text size="xl" accessibilityLabel={1} bold>NASA Image Library</Text>
+                    <Text size="xl" accessibilityLabel={1} bold>NASA Image<br/> &amp; Video Library</Text>
                 </Box>
                 <Box padding={3}>
                     <SearchField 
