@@ -1,6 +1,6 @@
 # React App: use NASA API to search images
 
-Install
+## Install
 - Clone this repo to your local machine
 - Run `npm install` to install all project dependencies
 - Run `npm start` to run the app in the development mode
@@ -10,10 +10,19 @@ Install
 
 ## Features
 - Search NASA images
-- Display images, alt text and title
+- See image details 
 
 ## Stack
 - Framework: React 16
+- Routing: react-router
 - Component Library: Pintrest gestalt 
 - API call: Axios
+ 
+ ## APIs
+ - [NASA APIs: Image and Video Library](https://api.nasa.gov/)
+
+ ## To Do
+ - Add pagination, currently only shows the first page (100 items)
+ - Add searching for videos, currently only shows images
+ - Add unit tests
  
