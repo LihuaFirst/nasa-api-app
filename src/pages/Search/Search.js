@@ -5,7 +5,7 @@ import normalize from '../../services/normalize/normalize';
 import HeaderBar from '../../components/HeaderBar/HeaderBar';
 import Gallery from '../../components/Gallery/Gallery';
 import GalleryItem from '../../components/GalleryItem/GalleryItem';
-import styles from './Search';
+import styles from './Search.module.css';
 
 class Search extends React.Component {
    constructor(props) {
@@ -47,7 +47,7 @@ class Search extends React.Component {
       const { query, assets, isLoading } = this.state;
 
       const galleryItems = assets.map(child => (
-         <div className={styles['Gallery-item']} key={Math.random()}>
+         <div className={styles['gallery-item']} key={Math.random()}>
             <GalleryItem
                href={child.href}
                alt={child.alt}
@@ -80,7 +80,7 @@ class Search extends React.Component {
 
       return (
          <div className={styles['search-wrapper']}>
-            <div className={styles['Search-header']}>
+            <div className={styles['search-header']}>
                <HeaderBar search={query}
                   onSearchChanged={this.onSearchChanged} />
             </div>
