@@ -39,6 +39,7 @@ class Asset extends React.Component {
       asset: {
         href,
         title,
+        alt,
         description,
         dateCreated
       }
@@ -48,7 +49,7 @@ class Asset extends React.Component {
     const assetContent = (
       <div className={styles['asset-content']}>
         <div className={styles['asset-image']}>
-          <img src={href} alt={title} title={title} />
+          <img src={href} alt={alt} title={title} />
         </div>        
         <div className={styles['asset-data']}>
           {title && <h1 className={styles['asset-title']}>{title}</h1>}
