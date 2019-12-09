@@ -31,7 +31,7 @@ class HeaderBar extends React.Component {
                             className={styles['header-logo']} />
 
                         <Box padding={3}>
-                            <Text size="xl" accessibilityLabel={1} bold>NASA Image<br /> &amp; Video Library</Text>
+                            <Text size="xl" accessibilityLabel={1} bold>NASA<br />Image Library</Text>
                         </Box>
                         <Box padding={3}>
                             <SearchField

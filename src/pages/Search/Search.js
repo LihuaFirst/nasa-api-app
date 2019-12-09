@@ -29,10 +29,9 @@ class Search extends React.Component {
 
       axios.get(`${NASA_API_URL}/search?media_type=image&q=${query}`)
          .then(response => {
-            console.log(response.data.collection);
-            const result = normalize.search(response.data.collection.items);
+            //console.log(response.data);
             this.setState({ isLoading: false });
-            this.setState({ assets: result });
+            this.setState({ assets: normalize.search(response.data.collection.items) });
          })
          .catch(error => {
             this.setState({ isLoading: false });
@@ -49,6 +48,7 @@ class Search extends React.Component {
       const galleryItems = assets.map(child => (
          <div className={styles['gallery-item']} key={Math.random()}>
             <GalleryItem
+               id={child.nasa_id}
                href={child.href}
                alt={child.alt}
                title={child.title}
