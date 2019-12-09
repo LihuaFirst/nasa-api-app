@@ -39,7 +39,8 @@ class Asset extends React.Component {
       asset: {
         href,
         title,
-        description
+        description,
+        dateCreated
       }
     } = this.state;
 
@@ -51,7 +52,8 @@ class Asset extends React.Component {
         </div>        
         <div className={styles['asset-data']}>
           {title && <h1 className={styles['asset-title']}>{title}</h1>}
-          {description && <p className={styles['sset-description']}>{description}</p>}
+          {dateCreated && <p className={styles['asset-date']}>Created on: {dateCreated}</p>}
+          {description && <p className={styles['asset-description']}>{description}</p>}
         </div>
       </div>
     );
