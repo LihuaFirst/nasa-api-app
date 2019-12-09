@@ -4,7 +4,6 @@ import { NASA_API_URL } from '../../services/api/nasa_api';
 import normalize from '../../services/normalize/normalize';
 import HeaderBar from '../../components/HeaderBar/HeaderBar';
 import Gallery from '../../components/Gallery/Gallery';
-import GalleryItem from '../../components/GalleryItem/GalleryItem';
 import styles from './Search.module.css';
 
 class Search extends React.Component {
@@ -45,18 +44,7 @@ class Search extends React.Component {
    render() {
       const { query, assets, isLoading } = this.state;
 
-      const galleryItems = assets.map(child => (
-         <div className={styles['gallery-item']} key={Math.random()}>
-            <GalleryItem
-               id={child.nasa_id}
-               href={child.href}
-               alt={child.alt}
-               title={child.title}
-            />
-         </div>
-      ));
-
-      const searchContent = () => {
+      const displayContent = () => {
          if (isLoading) {
             return (
                <p>Loading</p>
@@ -66,7 +54,7 @@ class Search extends React.Component {
          if (assets.length > 0) {
             return (
                <Gallery>
-                  {galleryItems}
+                  {assets}
                </Gallery>
             );
          }
@@ -85,7 +73,7 @@ class Search extends React.Component {
                   onSearchChanged={this.onSearchChanged} />
             </div>
             <div className={styles['search-content']}>
-               {searchContent()}
+               {displayContent()}
             </div>
          </div>
       );
