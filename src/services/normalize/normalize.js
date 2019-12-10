@@ -19,7 +19,6 @@ const normalizeItem = (item) => ({
    description: item.data[0].description,
    alt: (item.data[0].description_508) ? item.data[0].description_508 : item.data[0].description,
    dateCreated: formatDate(item.data[0].date_created)
-
 });
 
 const normalize = {

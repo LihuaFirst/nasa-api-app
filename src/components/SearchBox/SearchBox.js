@@ -1,0 +1,52 @@
+import React from 'react';
+import { Box, SearchField } from "gestalt";
+//import styles from './SearchBox.module.css';
+
+class SearchBox extends React.Component {
+   constructor(props) {
+      super(props);
+      const { query } = this.props;
+      
+      this.state = {
+         query: query || ''
+      }
+
+      this.handleChange = this.handleChange.bind(this);
+   }
+
+   handleChange(e) {
+      let input = e.value;     
+      console.log(input); 
+      this.setState({
+         query: input
+      });
+
+      if(input) {
+         this.props.onSearchChanged(input);
+      }
+      
+      // const { onSearchChanged } = this.props;
+      // const { query } = this.state;
+      // if(query) {
+      //    onSearchChanged(query);
+      // }
+  }
+
+   render() {
+      const { query } = this.state;
+
+      return (
+         <Box padding={3}>
+            <SearchField
+               accessibilityLabel="search field"
+               id="searchField"
+               onChange={this.handleChange}
+               placeholder="Search NASA images"
+               value={query}
+            />
+      </Box>
+      );
+   }
+}
+
+export default SearchBox;

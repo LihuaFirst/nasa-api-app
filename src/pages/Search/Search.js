@@ -1,8 +1,10 @@
 import React from 'react';
+//import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import { NASA_API_URL } from '../../services/api/nasa_api';
 import normalize from '../../services/normalize/normalize';
 import HeaderBar from '../../components/HeaderBar/HeaderBar';
+import SearchBox from '../../components/SearchBox/SearchBox';
 import Gallery from '../../components/Gallery/Gallery';
 import styles from './Search.module.css';
 
@@ -39,6 +41,7 @@ class Search extends React.Component {
 
    onSearchChanged(query) {
       this.setState({ query });
+      this.searchAsset(query);
    }
 
    render() {
@@ -69,8 +72,9 @@ class Search extends React.Component {
       return (
          <div className={styles['search-wrapper']}>
             <div className={styles['search-header']}>
-               <HeaderBar search={query}
-                  onSearchChanged={this.onSearchChanged} />
+               <HeaderBar>
+                  <SearchBox query={query} onSearchChanged={this.onSearchChanged} />
+               </HeaderBar>
             </div>
             <div className={styles['search-content']}>
                {displayContent()}
