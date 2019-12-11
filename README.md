@@ -1,5 +1,8 @@
 # React App: use NASA API to search images
 
+Live Website
+[https://nasa-api-app.netlify.com/](https://nasa-api-app.netlify.com/)
+
 ## Install
 - Clone this repo to your local machine
 - Run `npm install` to install all project dependencies
