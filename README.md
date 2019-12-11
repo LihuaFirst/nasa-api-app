@@ -22,6 +22,7 @@
  - [NASA APIs: Image and Video Library](https://api.nasa.gov/)
 
  ## To Do
+ - Add debouncing onChange
  - Add pagination, currently only shows the first page (100 items)
  - Add searching for videos, currently only shows images
  - Add unit tests

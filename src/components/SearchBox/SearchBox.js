@@ -16,20 +16,12 @@ class SearchBox extends React.Component {
 
    handleChange(e) {
       let input = e.value;     
-      console.log(input); 
-      this.setState({
-         query: input
-      });
+      console.log(e); 
+      this.setState({ query: input  });
 
       if(input) {
          this.props.onSearchChanged(input);
       }
-      
-      // const { onSearchChanged } = this.props;
-      // const { query } = this.state;
-      // if(query) {
-      //    onSearchChanged(query);
-      // }
   }
 
    render() {
