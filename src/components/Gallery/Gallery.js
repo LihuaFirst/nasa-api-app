@@ -21,4 +21,6 @@ const Gallery = ({ children }) => {
        </div>);
 };
 
-export default Gallery;
+// use React.memo to make it a pure component
+// so Gallery only re-renders when the children has really changed
+export default React.memo(Gallery);
